@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 96.0, 79.0, 1252.0, 707.0 ],
+		"rect" : [ 111.0, 79.0, 1350.0, 690.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,16 +39,100 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-29",
+					"linecount" : 4,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 455.0, 49.0, 244.0, 54.0 ],
+					"text" : "this is an example of how to use the playback context (sync signal) to rotate the sources around the circumference of a circle over the duration of the sound files"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-25",
+					"maxclass" : "toggle",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 265.0, 80.0, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-18",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 265.0, 118.0, 52.0, 20.0 ],
+					"text" : "gate 1 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-14",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 793.0, 30.0, 150.0, 18.0 ],
+					"text" : "toggle playback"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1120.0, 63.0, 150.0, 18.0 ],
+					"text" : "load sound files here"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontsize" : 12.0,
+					"id" : "obj-47",
+					"linecount" : 2,
+					"maxclass" : "o.expr.codebox",
+					"numinlets" : 2,
+					"numoutlets" : 3,
+					"outlettype" : [ "FullPacket", "FullPacket", "FullPacket" ],
+					"patching_rect" : [ 298.0, 49.0, 155.0, 46.0 ],
+					"text" : "/rot = /sync * 360.,\n/rad = 5."
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"color" : [ 0.988235294117647, 0.996078431372549, 0.0, 1.0 ],
+					"id" : "obj-46",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 298.0, 19.0, 142.0, 20.0 ],
+					"text" : "udpreceive 6666 CNMAT"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"fontface" : 0,
 					"fontsize" : 12.0,
 					"id" : "obj-45",
-					"linecount" : 4,
 					"maxclass" : "o.display",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 939.214285714285779, 363.5, 233.0, 75.0 ],
-					"text" : "/sync : 0.093373,\n/transport : \"stop\",\n/sf/dur/ms : 58191,\n/sf/name : \"MONO-000.WAV\""
+					"patching_rect" : [ 939.214285714285779, 363.5, 233.0, 34.0 ]
 				}
 
 			}
@@ -58,7 +142,7 @@
 					"maxclass" : "ezdac~",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 989.714285714285779, 620.0, 45.0, 45.0 ]
+					"patching_rect" : [ 698.714285714285779, 439.5, 45.0, 45.0 ]
 				}
 
 			}
@@ -123,11 +207,12 @@
 			}
 , 			{
 				"box" : 				{
+					"color" : [ 0.988235294117647, 0.996078431372549, 0.0, 1.0 ],
 					"id" : "obj-36",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 918.714285714285779, 455.0, 135.0, 20.0 ],
+					"patching_rect" : [ 918.714285714285779, 464.5, 135.0, 20.0 ],
 					"text" : "udpsend localhost 6666"
 				}
 
@@ -145,12 +230,12 @@
 					"patching_rect" : [ 761.0, 300.5, 157.0, 138.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_shortname" : "live.gain~",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4,
 							"parameter_mmin" : -70.0,
 							"parameter_longname" : "live.gain~",
-							"parameter_mmax" : 6.0
+							"parameter_mmax" : 6.0,
+							"parameter_shortname" : "live.gain~"
 						}
 
 					}
@@ -340,7 +425,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 499.0, 455.0, 56.0, 20.0 ],
+					"patching_rect" : [ 499.0, 534.0, 56.0, 20.0 ],
 					"text" : "localhost"
 				}
 
@@ -348,12 +433,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-69",
-					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 204.0, 418.0, 150.0, 30.0 ],
-					"text" : "enter ip address of server (if necessary)"
+					"patching_rect" : [ 204.0, 508.0, 150.0, 18.0 ],
+					"text" : "enter ip address of server"
 				}
 
 			}
@@ -364,7 +448,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 204.0, 516.0, 79.0, 20.0 ],
+					"patching_rect" : [ 204.0, 595.0, 79.0, 20.0 ],
 					"text" : "prepend host"
 				}
 
@@ -377,7 +461,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 174.0, 455.0, 24.0, 24.0 ]
+					"patching_rect" : [ 174.0, 534.0, 24.0, 24.0 ]
 				}
 
 			}
@@ -389,7 +473,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 418.0, 455.0, 50.0, 20.0 ]
+					"patching_rect" : [ 418.0, 534.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -401,7 +485,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 346.666666666666515, 455.0, 50.0, 20.0 ]
+					"patching_rect" : [ 346.666666666666515, 534.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -413,7 +497,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 275.333333333333258, 455.0, 50.0, 20.0 ]
+					"patching_rect" : [ 275.333333333333258, 534.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -425,7 +509,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 204.0, 455.0, 50.0, 20.0 ]
+					"patching_rect" : [ 204.0, 534.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -436,7 +520,7 @@
 					"numinlets" : 7,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 204.0, 487.0, 233.0, 20.0 ],
+					"patching_rect" : [ 204.0, 566.0, 233.0, 20.0 ],
 					"text" : "combine 192 . 168 . 178 . 22 @triggers 32"
 				}
 
@@ -448,7 +532,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "FullPacket" ],
-					"patching_rect" : [ 71.0, 459.0, 93.0, 20.0 ],
+					"patching_rect" : [ 71.0, 538.0, 93.0, 20.0 ],
 					"text" : "o.select /source"
 				}
 
@@ -458,13 +542,13 @@
 					"fontface" : 0,
 					"fontsize" : 12.0,
 					"id" : "obj-12",
-					"linecount" : 19,
+					"linecount" : 24,
 					"maxclass" : "o.expr.codebox",
 					"numinlets" : 2,
 					"numoutlets" : 3,
 					"outlettype" : [ "FullPacket", "FullPacket", "FullPacket" ],
-					"patching_rect" : [ 71.0, 118.0, 565.0, 277.0 ],
-					"text" : "/rad ??= 5.,\n/rot ??= 0.,\n/source/number = 8,\n/source/1/pol = [0., 0. + /rot],\n/source/2/pol = [/rad, 315 + /rot],\n/source/3/pol = [/rad, 0. + /rot],\n/source/4/pol = [/rad, 45 + /rot],\n/source/5/pol = [/rad, 135 + /rot],\n/source/6/pol = [/rad, 180 + /rot],\n/source/7/pol = [/rad, 225 + /rot],\n/source/8/pol = [0., 0. + /rot],\nmap(lambda(i, \n           assign(\"/source/\" + i + \"/xy\",\n                  apply(lambda(c,\n                               [c[[0]] * sin((c[[1]] / 360.) * (2 * pi())), \n                                c[[0]] * cos((c[[1]] / 360.) * (2 * pi()))]),\n                        value(\"/source/\" + i + \"/pol\"))),\n           map(delete, \"/source/\" + i + \"/pol\")),\n    aseq(1, /source/number))"
+					"patching_rect" : [ 71.0, 151.0, 565.0, 345.0 ],
+					"text" : "/rad ??= 5.,\n/rot ??= 0.,\n/source/number = 8,\n/source/1/pol = [0., 0. + /rot],\n/source/2/pol = [/rad, 315 + /rot],\n/source/3/pol = [/rad, 0. + /rot],\n/source/4/pol = [/rad, 45 + /rot],\n/source/5/pol = [/rad, 135 + /rot],\n/source/6/pol = [/rad, 180 + /rot],\n/source/7/pol = [/rad, 225 + /rot],\n/source/8/pol = [0., 0. + /rot],\n\n###\n# Convert polar coordinates to Cartesian. Note that sin and cos are swapped\n# in order to put 0 degrees at the back of the room, rather than the side.\n###\nmap(lambda(i, \n           assign(\"/source/\" + i + \"/xy\",\n                  apply(lambda(c,\n                               [c[[0]] * sin((c[[1]] / 360.) * (2 * pi())), \n                                c[[0]] * cos((c[[1]] / 360.) * (2 * pi()))]),\n                        value(\"/source/\" + i + \"/pol\"))),\n           map(delete, \"/source/\" + i + \"/pol\")),\n    aseq(1, /source/number))"
 				}
 
 			}
@@ -475,7 +559,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "FullPacket" ],
-					"patching_rect" : [ 71.0, 516.0, 113.0, 20.0 ],
+					"patching_rect" : [ 71.0, 595.0, 113.0, 20.0 ],
 					"text" : "o.prepend /wfs/spat"
 				}
 
@@ -486,7 +570,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 71.0, 545.0, 171.0, 20.0 ],
+					"patching_rect" : [ 71.0, 624.0, 171.0, 20.0 ],
 					"text" : "udpsend 192.168.178.22 8888"
 				}
 
@@ -531,6 +615,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-15", 0 ],
 					"source" : [ "obj-17", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-12", 0 ],
+					"source" : [ "obj-18", 0 ]
 				}
 
 			}
@@ -587,6 +678,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-43", 0 ],
 					"source" : [ "obj-24", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-18", 0 ],
+					"source" : [ "obj-25", 0 ]
 				}
 
 			}
@@ -762,6 +860,20 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-47", 0 ],
+					"source" : [ "obj-46", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-18", 1 ],
+					"source" : [ "obj-47", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-1", 4 ],
 					"source" : [ "obj-5", 0 ]
 				}
@@ -869,8 +981,8 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "groove8~.maxpat",
-				"bootpath" : "~/Development/HfMT-ZM4/KiSS-Fall-2019/patchers",
-				"patcherrelativepath" : "../KiSS-Fall-2019/patchers",
+				"bootpath" : "~/Development/HfMT-ZM4/WFS-Client",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
@@ -926,9 +1038,9 @@
 , 			{
 				"name" : "Default M4L",
 				"default" : 				{
-					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
+					"fontname" : [ "Arial Bold" ],
 					"fontsize" : [ 11.0 ],
-					"fontname" : [ "Arial Bold" ]
+					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 				}
 ,
 				"parentstyle" : "",
@@ -937,9 +1049,9 @@
 , 			{
 				"name" : "Default M4L Poletti",
 				"default" : 				{
-					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
+					"fontname" : [ "Arial Bold" ],
 					"fontsize" : [ 10.0 ],
-					"fontname" : [ "Arial Bold" ]
+					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ]
 				}
 ,
 				"parentstyle" : "",
@@ -948,7 +1060,6 @@
 , 			{
 				"name" : "Default M4L-1",
 				"default" : 				{
-					"fontface" : [ 1 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -958,8 +1069,9 @@
 						"proportion" : 0.39
 					}
 ,
-					"fontsize" : [ 11.0 ],
-					"fontname" : [ "Arial" ]
+					"fontname" : [ "Arial" ],
+					"fontface" : [ 1 ],
+					"fontsize" : [ 11.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -994,8 +1106,8 @@
 						"proportion" : 0.39
 					}
 ,
-					"fontsize" : [ 9.0 ],
-					"fontname" : [ "Arial" ]
+					"fontname" : [ "Arial" ],
+					"fontsize" : [ 9.0 ]
 				}
 ,
 				"parentstyle" : "",
